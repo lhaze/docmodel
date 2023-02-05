@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "docmodel"
+version = "0.1.0"
+description = ""
+authors = ["lhaze <lhaze@lhaze.name>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+parsel = "^1.6.0"
+pre-commit = "^3.0.4"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.1"
+black = "^23.1.0"
+ipython = "^8.9.0"
+pdbpp = "^0.10.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = "--doctest-modules -s"
+filterwarnings = [
+    "error",
+    "ignore::DeprecationWarning",
+]
+doctest_optionflags= "ELLIPSIS NORMALIZE_WHITESPACE"
+norecursedirs = [
+    "__pypackages__/*",
+]
